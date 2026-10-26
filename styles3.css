@@ -1,0 +1,263 @@
+/* ===== Reset básico ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f6f8;
+    color: #333;
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ===== Título / mensaje ===== */
+h3 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    padding: 12px 18px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    max-width: 700px;
+}
+
+/* ===== Sección de inputs y botones ===== */
+.input {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+    padding: 15px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 900px;
+}
+
+.input input[type="number"] {
+    width: 120px;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.input input[type="number"]:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+/* Ocultar flechas del input number */
+.input input[type="number"]::-webkit-outer-spin-button,
+.input input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.input input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+/* ===== Botones ===== */
+.input button {
+    padding: 8px 18px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:  0.2s ease;
+    color: #444242;
+}
+
+#generar   { background: #4a90e2; }
+#generar:hover  { background: #357abd; }
+
+#multiplicar { background: #2ecc71; }
+#multiplicar:hover { background: #27ae60; }
+
+/* ===== Footer / contenedor de tablas ===== */
+footer {
+    width: 100%;
+    margin-top: auto;
+    padding-top: 30px;
+    text-align: center;
+    font-size: 13px;
+    color: #888;
+}
+
+#tablas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    margin: 20px auto 30px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    max-width: 900px;
+    overflow-x: auto;
+}
+
+/* ===== Operadores (X, =) ===== */
+#operadores {
+    font-size: 26px;
+    font-weight: 700;
+    color: #4a90e2;
+    user-select: none;
+    padding: 0 4px;
+}
+
+/* ===== Tablas (matrices) ===== */
+#tabla1,
+#tabla2,
+#tabla3 {
+    display: inline-block;
+}
+
+#tablas table {
+    border-collapse: separate;
+    border-spacing: 6px 8px;
+    margin: 0 auto;
+}
+
+#tablas table td {
+    padding: 0;
+    text-align: center;
+    vertical-align: middle;
+    border: none;
+    background: transparent;
+}
+
+/* Inputs de las matrices (estilo cajita limpia) */
+#tablas table input {
+    width: 55px;
+    padding: 8px 6px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #fff;
+    font-size: 15px;
+    font-family: inherit;
+    text-align: center;
+    color: #222;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#tablas table input:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+/* Ocultar flechitas de los inputs de la matriz */
+#tablas table input::-webkit-outer-spin-button,
+#tablas table input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+#tablas table input {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+/* ===== Tabla resultado (destacada en verde) ===== */
+#tabla3 table input {
+    border-color: #2ecc71;
+    background: #f0fdf4;
+    font-weight: 700;
+    color: #1e8449;
+}
+
+#tabla3 table input:focus {
+    border-color: #27ae60;
+    box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.25);
+}
+
+/* ===== Clase para ocultar ===== */
+.ocult {
+    visibility: hidden;
+}
+
+/* ===== Créditos ===== */
+footer > p {
+    margin-top: 15px;
+    font-size: 13px;
+    color: #888;
+    font-style: italic;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    body {
+        padding: 15px 10px;
+    }
+
+    h3 {
+        font-size: 14px;
+        padding: 10px 14px;
+    }
+
+    .input {
+        padding: 12px;
+        gap: 8px;
+    }
+
+    .input input[type="number"] {
+        width: 100px;
+    }
+
+    .input button {
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+
+    #tablas {
+        padding: 15px;
+        gap: 12px;
+    }
+
+    #operadores {
+        font-size: 20px;
+    }
+
+    #tablas table input {
+        width: 45px;
+        font-size: 14px;
+        padding: 6px 4px;
+    }
+}
+
+@media (max-width: 480px) {
+    .input {
+        flex-direction: column;
+    }
+
+    .input input[type="number"],
+    .input button {
+        width: 100%;
+    }
+
+    #tablas {
+        flex-direction: column;
+    }
+
+    #operadores {
+        transform: rotate(90deg);
+    }
+}

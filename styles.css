@@ -1,0 +1,276 @@
+/* =========================================
+   RESET Y BASE
+   ========================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: #f8fafc; /* Gris muy claro, agradable a la vista */
+    color: #334155; /* Gris pizarra, más suave que el negro puro */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+/* =========================================
+   PANEL DE CONTROL (INPUTS Y BOTONES)
+   ========================================= */
+.container {
+    background: #ffffff;
+    padding: 24px 32px;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 
+                0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    max-width: 600px;
+}
+.operar{
+
+        background: #ffffff;
+    padding: 24px 32px;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 
+                0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+}
+.operar button{
+    height: 50px;
+    width: 200px;
+}
+.input {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Campo de texto principal */
+#matrizSize {
+    padding: 12px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 16px;
+    color: #334155;
+    outline: none;
+    transition: all 0.3s ease;
+    flex: 1;
+    min-width: 200px;
+}
+
+#matrizSize:focus {
+    border-color: #6366f1; /* Índigo suave */
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+/* Ocultar flechas del input number para un look más limpio */
+#matrizSize::-webkit-outer-spin-button,
+#matrizSize::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* =========================================
+   BOTONES
+   ========================================= */
+button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: 0.3px;
+}
+
+/* Botón Generar (Índigo) */
+#generar {
+    background-color: #6366f1;
+    color: #ffffff;
+}
+
+#generar:hover {
+    background-color: #4f46e5;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px -3px rgba(99, 102, 241, 0.3);
+}
+
+#generar:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.2);
+}
+
+#back {
+    background-color: #f16363;
+    color: #ffffff;
+}
+
+#back:hover {
+    background-color: #f16363;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px -3px rgba(99, 102, 241, 0.3);
+}
+
+#back:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.2);
+}
+
+/* Botón Escalonar (Esmeralda) */
+#scal {
+    background-color: #10b981;
+    color: #ffffff;
+}
+
+#scal:hover {
+    background-color: #059669;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px -3px rgba(16, 185, 129, 0.3);
+}
+
+#scal:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2);
+}
+#determinante {
+    background-color: #10b981;
+    color: #ffffff;
+}
+
+#determinante:hover {
+    background-color: #059669;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px -3px rgba(16, 185, 129, 0.3);
+}
+
+#determinante:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2);
+}
+#inv {
+    background-color: #10b981;
+    color: #ffffff;
+}
+
+#inv:hover {
+    background-color: #059669;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px -3px rgba(16, 185, 129, 0.3);
+}
+
+#inv:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2);
+}
+
+/* =========================================
+   TABLA DE LA MATRIZ
+   ========================================= */
+#tabla {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow-x: auto; /* Por si la matriz es muy grande en móviles */
+    padding: 10px;
+}
+
+.matriz {
+    border-collapse: separate;
+    border-spacing: 8px; /* Espacio entre celdas para un efecto "flotante" */
+    animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.matriz td {
+    padding: 4px;
+}
+
+/* Inputs dentro de la matriz */
+.matriz input {
+    width: 64px;
+    height: 48px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    background-color: #ffffff;
+    color: #334155;
+    transition: all 0.25s ease;
+}
+
+.matriz input:focus {
+    border-color: #6366f1;
+    background-color: #f8fafc;
+    outline: none;
+    transform: scale(1.08);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
+    z-index: 10;
+    position: relative;
+}
+
+/* Estilo para los resultados calculados (se verán ligeramente diferentes) */
+.matriz input.resultado {
+    background-color: #f1f5f9;
+    color: #475569;
+    font-weight: 600;
+    border-color: #cbd5e1;
+}
+
+/* =========================================
+   ANIMACIONES
+   ========================================= */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   RESPONSIVE (MÓVILES)
+   ========================================= */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+    
+    .input {
+        flex-direction: column;
+    }
+    
+    #matrizSize, button {
+        width: 100%;
+    }
+    
+    .matriz {
+        border-spacing: 4px;
+    }
+    
+    .matriz input {
+        width: 50px;
+        height: 40px;
+        font-size: 16px;
+    }
+}
